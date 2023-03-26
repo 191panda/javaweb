@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式选择器</title>
+
+  <!--引入jquery封装的js代码-->
+  <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    /*先加载body当中的内容 ！！！！！！*/
+    $(function (){
+           console.log($("*"))
+    })
+
+
+  </script>
+</head>
+<body>
+
+<!--
+    基础选择器
+        id选择器			#id属性值			$("#id属性值")				选择id为指定值的元素对象（如果有多个同名id，则以第一个为准）
+        类选择器			.class属性值			$(".class属性值	")			选择class为指定值的元素对象
+        元素选择器		标签名/元素名		$("标签名/元素名")			选择所有指定标签的元素对象
+
+        通用选择器		*					$("*")						选择页面中所有的元素对象
+        组合选择器		选择器1,选择器2,..	$("选择器1,选择器2,..")		选择指定选择器选中的元素对象
+-->
+
+<div id="mydiv1" class="blue">元素选择器</div>
+<div id="mydiv2">id选择器1<span>span中的内容</span></div>
+<span class="blue">样式选择器</span>
+
+
+</body>
+</html>

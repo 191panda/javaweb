@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>$.ajax</title>
+	</head>
+	<!-- 
+		jquery调用ajax方法：
+		
+		​		格式：$.ajax({});
+		​			参数：
+		​				type：请求方式GET/POST
+		​				url：请求地址url
+		​				async：是否异步，默认是true表示异步
+		​				data：发送到服务器的数据
+		​				dataType：预期服务器返回的数据类型
+		​				contentType：设置请求头
+		​				success：请求成功时调用此函数
+		​				error：请求失败时调用此函数
+	 -->
+	<body>
+		<button type="button" id="btn">查询数据</button>
+	</body>
+	<script src="../js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		//这个是静态的方法
+		$.ajax({
+			type:"get",
+			//url:"../json/data.json",
+			url:"../json/data.txt",
+			async:"true",
+			data:"json",
+			//data就是url传回来的数据
+			success:function (data){
+				var parseJSON = JSON.parse(data);// 如果传来的数据不是json 则要转换 但转换也要去是json格式的字符串
+				var ol=$("<ol></ol>")
+				for (let i = 0; i <parseJSON.length ; i++) {
+					let li="<li>"+parseJSON[i].userId+"-"+parseJSON[i].userName+"-"+parseJSON[i].userAge+"</li>"
+					//不创建jquery对象的话调用不了这个方法
+					ol.append(li)//添加字符串 浏览器会自动解析
+					//ol.append($(li))
+				}
+				$("body").append(ol)
+			}
+
+		})
+
+	</script>
+</html>
